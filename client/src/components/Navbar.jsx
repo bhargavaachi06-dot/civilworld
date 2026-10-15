@@ -1,28 +1,17 @@
 import React, { useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import {
-  HardHat,
-  Building2,
-  GraduationCap,
-  ChevronDown,
-  Menu,
-  X,
-  Lock,
-  PhoneCall,
-  Briefcase,
-  FileSpreadsheet,
-  Home as HomeIcon,
-  Layers,
-  Sparkles,
-} from 'lucide-react';
-import { useAuth } from '../context/AuthContext.jsx';
+import { Link, NavLink } from 'react-router-dom';
+import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isAuthenticated, user } = useAuth();
-  const navigate = useNavigate();
+  const [mobileConstructionOpen, setMobileConstructionOpen] = useState(false);
+  const [mobileAcademyOpen, setMobileAcademyOpen] = useState(false);
 
-  const closeMobile = () => setMobileMenuOpen(false);
+  const closeMobile = () => {
+    setMobileMenuOpen(false);
+    setMobileConstructionOpen(false);
+    setMobileAcademyOpen(false);
+  };
 
   return (
     <>
@@ -38,7 +27,7 @@ export const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav>
+          <nav aria-label="Main Navigation">
             <ul className="nav-links">
               <li className="nav-item">
                 <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
@@ -48,79 +37,57 @@ export const Navbar = () => {
 
               <li className="nav-item">
                 <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-                  About
+                  About Us
                 </NavLink>
               </li>
 
               {/* Construction Services Dropdown */}
               <li className="nav-item">
-                <div className="nav-link">
-                  Construction <ChevronDown size={14} />
+                <div className="nav-link" tabIndex={0} role="button" aria-haspopup="true">
+                  Construction Services <ChevronDown size={14} />
                 </div>
                 <div className="nav-dropdown">
-                  <Link to="/services" className="dropdown-link">All Services Overview</Link>
-                  <Link to="/services/turnkey" className="dropdown-link">Turnkey Projects</Link>
                   <Link to="/services/residential" className="dropdown-link">Residential Construction</Link>
                   <Link to="/services/commercial" className="dropdown-link">Commercial Construction</Link>
-                  <Link to="/services/interior" className="dropdown-link">Interior Design & Execution</Link>
-                  <Link to="/services/exterior" className="dropdown-link">Exterior Design & Facade</Link>
+                  <Link to="/services/interior" className="dropdown-link">Interior Design</Link>
+                  <Link to="/services/exterior" className="dropdown-link">Exterior Design</Link>
+                  <Link to="/services/turnkey" className="dropdown-link">Turnkey Projects</Link>
                   <Link to="/services/estimation-boq" className="dropdown-link">Estimation & BOQ</Link>
+                  <Link to="/portfolio" className="dropdown-link">Project Portfolio</Link>
                 </div>
               </li>
 
-              {/* Academy Dropdown */}
+              {/* CivilWorld Academy Dropdown */}
               <li className="nav-item">
-                <div className="nav-link">
-                  Academy <ChevronDown size={14} />
+                <div className="nav-link" tabIndex={0} role="button" aria-haspopup="true">
+                  CivilWorld Academy <ChevronDown size={14} />
                 </div>
                 <div className="nav-dropdown">
-                  <Link to="/academy" className="dropdown-link">Academy Overview</Link>
                   <Link to="/academy/programs" className="dropdown-link">Training Programs</Link>
                   <Link to="/academy/site-training" className="dropdown-link">Practical Site Training</Link>
-                  <Link to="/academy/documentation-training" className="dropdown-link">Documentation & BOQ Training</Link>
+                  <Link to="/academy/documentation-training" className="dropdown-link">Documentation Training</Link>
+                  <Link to="/careers" className="dropdown-link">Careers</Link>
                 </div>
-              </li>
-
-              <li className="nav-item">
-                <NavLink to="/portfolio" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-                  Portfolio
-                </NavLink>
-              </li>
-
-              <li className="nav-item">
-                <NavLink to="/careers" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-                  Careers
-                </NavLink>
               </li>
 
               <li className="nav-item">
                 <NavLink to="/blog" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-                  Knowledge
+                  Knowledge Center
                 </NavLink>
               </li>
 
               <li className="nav-item">
                 <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-                  Contact
+                  Contact Us
                 </NavLink>
               </li>
             </ul>
           </nav>
 
-          {/* Quick Actions & Admin Access */}
+          {/* Quick Actions (Admin Button Removed from Public Navbar) */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            {isAuthenticated ? (
-              <Link to="/admin/dashboard" className="btn btn-outline btn-sm">
-                <Lock size={14} /> Dashboard
-              </Link>
-            ) : (
-              <Link to="/admin/login" className="btn btn-outline btn-sm" title="Administrator Access">
-                <Lock size={14} /> Admin
-              </Link>
-            )}
-
-            <Link to="/contact" className="btn btn-primary btn-sm" style={{ display: 'none', md: 'inline-flex' }}>
-              Enquire
+            <Link to="/contact" className="btn btn-primary btn-sm">
+              Enquire Now
             </Link>
 
             <button
@@ -143,55 +110,64 @@ export const Navbar = () => {
                 <img
                   src="/assets/civilworld-logo.png"
                   alt="CivilWorld — Learn, Build, Grow"
-                  style={{ height: '44px', width: 'auto', objectFit: 'contain', borderRadius: '6px' }}
+                  style={{ height: '42px', width: 'auto', objectFit: 'contain', borderRadius: '6px' }}
                 />
               </Link>
-              <button onClick={closeMobile} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+              <button onClick={closeMobile} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#0f172a' }}>
                 <X size={24} />
               </button>
             </div>
 
             <Link to="/" className="mobile-nav-link" onClick={closeMobile}>Home</Link>
-            <Link to="/about" className="mobile-nav-link" onClick={closeMobile}>About CivilWorld</Link>
+            <Link to="/about" className="mobile-nav-link" onClick={closeMobile}>About Us</Link>
 
+            {/* Construction Services Mobile Accordion */}
             <div style={{ padding: '0.5rem 0' }}>
-              <div style={{ fontWeight: '700', fontSize: '0.85rem', color: '#94a3b8', textTransform: 'uppercase', padding: '0.5rem 0.5rem 0.25rem 0.5rem' }}>
-                Construction Division
+              <div
+                style={{ fontWeight: '700', fontSize: '0.9rem', color: '#0f172a', padding: '0.65rem 0.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}
+                onClick={() => setMobileConstructionOpen(!mobileConstructionOpen)}
+              >
+                <span>Construction Services</span>
+                <ChevronDown size={16} style={{ transform: mobileConstructionOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }} />
               </div>
-              <div className="mobile-sublinks">
-                <Link to="/services" className="mobile-sublink" onClick={closeMobile}>All Services</Link>
-                <Link to="/services/turnkey" className="mobile-sublink" onClick={closeMobile}>Turnkey Projects</Link>
-                <Link to="/services/residential" className="mobile-sublink" onClick={closeMobile}>Residential Construction</Link>
-                <Link to="/services/commercial" className="mobile-sublink" onClick={closeMobile}>Commercial Construction</Link>
-                <Link to="/services/interior" className="mobile-sublink" onClick={closeMobile}>Interior Design</Link>
-                <Link to="/services/exterior" className="mobile-sublink" onClick={closeMobile}>Exterior Design</Link>
-                <Link to="/services/estimation-boq" className="mobile-sublink" onClick={closeMobile}>Estimation & BOQ</Link>
-              </div>
+              {mobileConstructionOpen && (
+                <div className="mobile-sublinks">
+                  <Link to="/services/residential" className="mobile-sublink" onClick={closeMobile}>Residential Construction</Link>
+                  <Link to="/services/commercial" className="mobile-sublink" onClick={closeMobile}>Commercial Construction</Link>
+                  <Link to="/services/interior" className="mobile-sublink" onClick={closeMobile}>Interior Design</Link>
+                  <Link to="/services/exterior" className="mobile-sublink" onClick={closeMobile}>Exterior Design</Link>
+                  <Link to="/services/turnkey" className="mobile-sublink" onClick={closeMobile}>Turnkey Projects</Link>
+                  <Link to="/services/estimation-boq" className="mobile-sublink" onClick={closeMobile}>Estimation & BOQ</Link>
+                  <Link to="/portfolio" className="mobile-sublink" onClick={closeMobile}>Project Portfolio</Link>
+                </div>
+              )}
             </div>
 
+            {/* CivilWorld Academy Mobile Accordion */}
             <div style={{ padding: '0.5rem 0' }}>
-              <div style={{ fontWeight: '700', fontSize: '0.85rem', color: '#94a3b8', textTransform: 'uppercase', padding: '0.5rem 0.5rem 0.25rem 0.5rem' }}>
-                CivilWorld Academy
+              <div
+                style={{ fontWeight: '700', fontSize: '0.9rem', color: '#0f172a', padding: '0.65rem 0.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}
+                onClick={() => setMobileAcademyOpen(!mobileAcademyOpen)}
+              >
+                <span>CivilWorld Academy</span>
+                <ChevronDown size={16} style={{ transform: mobileAcademyOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }} />
               </div>
-              <div className="mobile-sublinks">
-                <Link to="/academy" className="mobile-sublink" onClick={closeMobile}>Academy Overview</Link>
-                <Link to="/academy/programs" className="mobile-sublink" onClick={closeMobile}>Training Programs</Link>
-                <Link to="/academy/site-training" className="mobile-sublink" onClick={closeMobile}>Practical Site Training</Link>
-                <Link to="/academy/documentation-training" className="mobile-sublink" onClick={closeMobile}>Documentation Training</Link>
-              </div>
+              {mobileAcademyOpen && (
+                <div className="mobile-sublinks">
+                  <Link to="/academy/programs" className="mobile-sublink" onClick={closeMobile}>Training Programs</Link>
+                  <Link to="/academy/site-training" className="mobile-sublink" onClick={closeMobile}>Practical Site Training</Link>
+                  <Link to="/academy/documentation-training" className="mobile-sublink" onClick={closeMobile}>Documentation Training</Link>
+                  <Link to="/careers" className="mobile-sublink" onClick={closeMobile}>Careers</Link>
+                </div>
+              )}
             </div>
 
-            <Link to="/portfolio" className="mobile-nav-link" onClick={closeMobile}>Project Portfolio</Link>
-            <Link to="/careers" className="mobile-nav-link" onClick={closeMobile}>Careers & Placements</Link>
             <Link to="/blog" className="mobile-nav-link" onClick={closeMobile}>Knowledge Center</Link>
             <Link to="/contact" className="mobile-nav-link" onClick={closeMobile}>Contact Us</Link>
-            <Link to="/admin/login" className="mobile-nav-link" onClick={closeMobile} style={{ color: '#d97706' }}>
-              Admin Portal
-            </Link>
 
             <div style={{ marginTop: 'auto', paddingTop: '1.5rem' }}>
               <Link to="/contact" className="btn btn-primary" style={{ width: '100%' }} onClick={closeMobile}>
-                Request Project Consultation
+                Request Consultation
               </Link>
             </div>
           </div>

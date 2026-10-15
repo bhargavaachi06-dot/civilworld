@@ -60,7 +60,7 @@ export const Blog = () => {
           <span className="badge-tag blue" style={{ backgroundColor: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8' }}>
             Knowledge Center
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>CivilWorld Knowledge Center</h1>
+          <h1 className="page-hero-title" style={{ marginBottom: '1rem' }}>CivilWorld Knowledge Center</h1>
           <p style={{ maxWidth: '720px', margin: '0 auto', color: '#cbd5e1' }}>
             Practical field insights, structural quality checklists, quantity surveying formulas, and building execution guides for engineers and project owners.
           </p>

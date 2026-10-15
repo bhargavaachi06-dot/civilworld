@@ -10,7 +10,7 @@ export const Contact = () => {
           <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
             Get In Touch
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>Contact CivilWorld</h1>
+          <h1 className="page-hero-title" style={{ marginBottom: '1rem' }}>Contact CivilWorld</h1>
           <p style={{ maxWidth: '720px', margin: '0 auto', color: '#cbd5e1' }}>
             Have a construction project in mind or looking to enroll in our practical civil academy? Reach out to our technical team for consultations and inquiries.
           </p>
@@ -45,7 +45,11 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h4 style={{ fontSize: '1.05rem', marginBottom: '0.25rem' }}>Email Inquiries</h4>
-                    <p style={{ fontSize: '0.9rem', margin: 0 }}>info@civilworld.com</p>
+                    <p style={{ fontSize: '0.9rem', margin: 0 }}>
+                      <a href="mailto:civilworldtelugu1@gmail.com" style={{ color: '#0f172a', fontWeight: 600, textDecoration: 'none' }} onMouseOver={e => e.currentTarget.style.color = '#d97706'} onMouseOut={e => e.currentTarget.style.color = '#0f172a'}>
+                        civilworldtelugu1@gmail.com
+                      </a>
+                    </p>
                   </div>
                 </div>
 
@@ -55,7 +59,11 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h4 style={{ fontSize: '1.05rem', marginBottom: '0.25rem' }}>Direct Line</h4>
-                    <p style={{ fontSize: '0.9rem', margin: 0 }}>+91 (Contact Desk Placeholder)</p>
+                    <p style={{ fontSize: '0.9rem', margin: 0 }}>
+                      <a href="tel:7032518399" style={{ color: '#0f172a', fontWeight: 600, textDecoration: 'none' }} onMouseOver={e => e.currentTarget.style.color = '#d97706'} onMouseOut={e => e.currentTarget.style.color = '#0f172a'}>
+                        +91 7032518399
+                      </a>
+                    </p>
                   </div>
                 </div>
 

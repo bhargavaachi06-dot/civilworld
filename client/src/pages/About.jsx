@@ -10,7 +10,7 @@ export const About = () => {
           <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
             About CivilWorld
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1.25rem' }}>
+          <h1 className="page-hero-title" style={{ marginBottom: '1.25rem' }}>
             Building Structures, Developing Engineers
           </h1>
           <p style={{ maxWidth: '780px', margin: '0 auto', color: '#cbd5e1', fontSize: '1.15rem' }}>

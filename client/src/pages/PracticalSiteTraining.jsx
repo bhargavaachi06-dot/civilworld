@@ -10,7 +10,7 @@ export const PracticalSiteTraining = () => {
           <span className="badge-tag blue" style={{ backgroundColor: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8' }}>
             Field Mentorship
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>Practical Site Engineering Exposure</h1>
+          <h1 className="page-hero-title" style={{ marginBottom: '1rem' }}>Practical Site Engineering Exposure</h1>
           <p style={{ maxWidth: '720px', margin: '0 auto', color: '#cbd5e1' }}>
             Live project site exposure under direct senior engineer supervision. Learn how structural drawings transform into concrete reality with absolute adherence to safety and quality standards.
           </p>

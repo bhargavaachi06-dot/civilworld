@@ -10,7 +10,7 @@ export const TurnkeyProjects = () => {
           <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
             Complete Accountability
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>Complete Turnkey Construction</h1>
+          <h1 className="page-hero-title" style={{ marginBottom: '1rem' }}>Complete Turnkey Construction</h1>
           <p style={{ maxWidth: '720px', margin: '0 auto', color: '#cbd5e1' }}>
             From raw land to key in hand. We assume single-point responsibility for architectural design, approvals, material procurement, structural execution, interior fitouts, and formal project handover.
           </p>

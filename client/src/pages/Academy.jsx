@@ -23,7 +23,7 @@ export const Academy = () => {
               <span className="badge-tag blue" style={{ backgroundColor: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8', border: '1px solid rgba(56, 189, 248, 0.4)' }}>
                 Division B — CivilWorld Academy
               </span>
-              <h1>Bridge the Gap Between Civil Degree and Site Reality</h1>
+              <h1 className="page-hero-title">Bridge the Gap Between Civil Degree and Site Reality</h1>
               <p>
                 CivilWorld Academy prepares newly graduated civil engineers for high-responsibility site engineering roles through supervised active site training, structural drawing interpretation, and Daily Progress Reporting (DPR).
               </p>

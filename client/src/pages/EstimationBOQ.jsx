@@ -10,7 +10,7 @@ export const EstimationBOQ = () => {
           <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
             Quantity Surveying & Cost Control
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>Estimation & Bill of Quantities (BOQ)</h1>
+          <h1 className="page-hero-title" style={{ marginBottom: '1rem' }}>Estimation & Bill of Quantities (BOQ)</h1>
           <p style={{ maxWidth: '720px', margin: '0 auto', color: '#cbd5e1' }}>
             Accurate, bank-acceptable, item-wise cost estimates, standard rate analysis, Bar Bending Schedules (BBS), and tender documentation for property owners and developers.
           </p>

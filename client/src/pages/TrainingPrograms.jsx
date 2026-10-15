@@ -56,7 +56,7 @@ export const TrainingPrograms = () => {
           <span className="badge-tag blue" style={{ backgroundColor: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8' }}>
             Structured Curriculum
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>Graduate Civil Training Programs</h1>
+          <h1 className="page-hero-title" style={{ marginBottom: '1rem' }}>Graduate Civil Training Programs</h1>
           <p style={{ maxWidth: '720px', margin: '0 auto', color: '#cbd5e1' }}>
             Practical, industry-aligned training programs built specifically for fresh civil engineering graduates to gain immediate site credibility.
           </p>

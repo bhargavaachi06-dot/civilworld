@@ -34,7 +34,7 @@ export const Careers = () => {
           <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
             Work With Us
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>Careers & Student Opportunities</h1>
+          <h1 className="page-hero-title" style={{ marginBottom: '1rem' }}>Careers & Student Opportunities</h1>
           <p style={{ maxWidth: '720px', margin: '0 auto', color: '#cbd5e1' }}>
             Build your professional engineering trajectory with CivilWorld. Explore site engineering roles, trainee internships, and our industry placement network.
           </p>

@@ -10,7 +10,7 @@ export const ExteriorDesign = () => {
           <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
             Exterior & Elevation
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>Exterior Design & Facade Execution</h1>
+          <h1 className="page-hero-title" style={{ marginBottom: '1rem' }}>Exterior Design & Facade Execution</h1>
           <p style={{ maxWidth: '720px', margin: '0 auto', color: '#cbd5e1' }}>
             Elevating architectural identities with contemporary facade engineering, aluminum composite panels (ACP), high-pressure laminates (HPL), structural glazing, and weather-resistant external coatings.
           </p>

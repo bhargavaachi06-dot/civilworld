@@ -100,7 +100,7 @@ export const ProjectDetail = () => {
             </span>
           </div>
 
-          <h1 style={{ color: '#ffffff', fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', marginBottom: '0.85rem' }}>
+          <h1 className="page-hero-title" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', marginBottom: '0.85rem' }}>
             {project.title}
           </h1>
 

@@ -36,7 +36,7 @@ export const ProjectPortfolio = () => {
           <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
             Engineering Execution
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>Construction Project Portfolio</h1>
+          <h1 className="page-hero-title" style={{ marginBottom: '1rem' }}>Construction Project Portfolio</h1>
           <p style={{ maxWidth: '720px', margin: '0 auto', color: '#cbd5e1' }}>
             Explore verified turnkey construction, residential buildings, commercial complexes, and interior design executions managed by CivilWorld.
           </p>

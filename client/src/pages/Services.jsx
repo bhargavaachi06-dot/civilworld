@@ -61,7 +61,7 @@ export const Services = () => {
           <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
             Division A
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1.25rem' }}>
+          <h1 className="page-hero-title" style={{ marginBottom: '1.25rem' }}>
             Civil Engineering & Construction Services
           </h1>
           <p style={{ maxWidth: '750px', margin: '0 auto', color: '#cbd5e1', fontSize: '1.15rem' }}>

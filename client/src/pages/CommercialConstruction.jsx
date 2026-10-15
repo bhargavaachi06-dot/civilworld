@@ -10,7 +10,7 @@ export const CommercialConstruction = () => {
           <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
             CivilWorld Commercial
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>Commercial Building Construction</h1>
+          <h1 className="page-hero-title" style={{ marginBottom: '1rem' }}>Commercial Building Construction</h1>
           <p style={{ maxWidth: '700px', margin: '0 auto', color: '#cbd5e1' }}>
             High-occupancy retail complexes, corporate office spaces, educational institutions, and healthcare infrastructure constructed for durability, compliance, and operational efficiency.
           </p>

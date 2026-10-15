@@ -10,7 +10,7 @@ export const DocumentationTraining = () => {
           <span className="badge-tag blue" style={{ backgroundColor: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8' }}>
             Technical Documentation
           </span>
-          <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>Construction Documentation & BOQ Training</h1>
+          <h1 className="page-hero-title" style={{ marginBottom: '1rem' }}>Construction Documentation & BOQ Training</h1>
           <p style={{ maxWidth: '720px', margin: '0 auto', color: '#cbd5e1' }}>
             Master the official paper trail of construction: Daily Progress Reports (DPR), Measurement Books (M-Book), material reconciliation, Bar Bending Schedules (BBS), and client billing.
           </p>

@@ -562,7 +562,9 @@ a {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #0b1329 0%, #172554 50%, #0f172a 100%);
+  background: linear-gradient(135deg, rgba(11, 19, 41, 0.93) 0%, rgba(23, 37, 84, 0.90) 50%, rgba(15, 23, 42, 0.95) 100%),
+              url('/assets/civilworld-bg.jpg') center/cover no-repeat,
+              linear-gradient(135deg, #0b1329 0%, #172554 50%, #0f172a 100%);
   color: #ffffff;
   padding: 6.5rem 0 5.5rem 0;
   position: relative;

@@ -137,10 +137,31 @@ export const logout = async (req, res) => {
   const ipAddress = req.ip || req.connection?.remoteAddress || 'unknown';
   const userAgent = req.headers['user-agent'] || 'unknown';
 
-  if (req.user) {
+  let userId = req.user?._id || null;
+  let userEmail = req.user?.email || null;
+
+  // If req.user is not yet attached by middleware, decode token safely
+  if (!userId) {
+    const token =
+      req.cookies?.cw_auth_token ||
+      (req.headers.authorization?.startsWith('Bearer ') &&
+        req.headers.authorization.split(' ')[1]);
+
+    if (token) {
+      try {
+        const decoded = jwt.verify(token, config.jwtSecret);
+        userId = decoded.id;
+        userEmail = decoded.email || 'admin_user';
+      } catch (err) {
+        // Token expired or invalid, still clear cookie cleanly
+      }
+    }
+  }
+
+  if (userId) {
     await AuditLog.create({
-      userId: req.user._id,
-      userEmail: req.user.email,
+      userId,
+      userEmail: userEmail || 'admin_user',
       action: 'LOGOUT',
       category: 'AUTH',
       ipAddress,

@@ -6,11 +6,17 @@ import config from './config/index.js';
 import { apiLimiter } from './middleware/rateLimiter.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 // Route imports
 import healthRoutes from './routes/healthRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import publicRoutes from './routes/publicRoutes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -50,6 +56,9 @@ app.use(express.urlencoded({ extended: true, limit: '100kb' }));
 
 // Cookie parser for secure HttpOnly session tokens
 app.use(cookieParser());
+
+// Serve uploaded project images statically
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Apply general API rate limiter to all API endpoints
 app.use('/api', apiLimiter);

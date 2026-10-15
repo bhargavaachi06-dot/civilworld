@@ -17,6 +17,7 @@ import ExteriorDesign from './pages/ExteriorDesign.jsx';
 import TurnkeyProjects from './pages/TurnkeyProjects.jsx';
 import EstimationBOQ from './pages/EstimationBOQ.jsx';
 import ProjectPortfolio from './pages/ProjectPortfolio.jsx';
+import ProjectDetail from './pages/ProjectDetail.jsx';
 import Academy from './pages/Academy.jsx';
 import TrainingPrograms from './pages/TrainingPrograms.jsx';
 import PracticalSiteTraining from './pages/PracticalSiteTraining.jsx';
@@ -29,6 +30,7 @@ import AdminLogin from './pages/AdminLogin.jsx';
 // Admin Protected Pages
 import AdminLayout from './pages/admin/AdminLayout.jsx';
 import DashboardOverview from './pages/admin/DashboardOverview.jsx';
+import ProjectsManager from './pages/admin/ProjectsManager.jsx';
 import EnquiriesManager from './pages/admin/EnquiriesManager.jsx';
 import AuditLogsManager from './pages/admin/AuditLogsManager.jsx';
 import AdminPlaceholderModule from './pages/admin/AdminPlaceholderModule.jsx';
@@ -58,6 +60,7 @@ export const App = () => {
       <Route path="/services/turnkey" element={<PublicLayout><TurnkeyProjects /></PublicLayout>} />
       <Route path="/services/estimation-boq" element={<PublicLayout><EstimationBOQ /></PublicLayout>} />
       <Route path="/portfolio" element={<PublicLayout><ProjectPortfolio /></PublicLayout>} />
+      <Route path="/portfolio/:slug" element={<PublicLayout><ProjectDetail /></PublicLayout>} />
       <Route path="/academy" element={<PublicLayout><Academy /></PublicLayout>} />
       <Route path="/academy/programs" element={<PublicLayout><TrainingPrograms /></PublicLayout>} />
       <Route path="/academy/site-training" element={<PublicLayout><PracticalSiteTraining /></PublicLayout>} />
@@ -97,21 +100,7 @@ export const App = () => {
             />
           }
         />
-        <Route
-          path="projects"
-          element={
-            <AdminPlaceholderModule
-              title="Construction Projects"
-              description="Manage ongoing and completed construction sites, client progress albums, and milestone reports."
-              plannedFeatures={[
-                'Project creation (Residential, Commercial, Turnkey)',
-                'Weekly site photo gallery uploads',
-                'Milestone percentage tracker and client view link',
-              ]}
-              moduleCategory="Construction"
-            />
-          }
-        />
+        <Route path="projects" element={<ProjectsManager />} />
         <Route
           path="students"
           element={

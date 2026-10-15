@@ -1,87 +1,44 @@
-import React, { useState } from 'react';
-import { Building2, Home, Compass, Layers, CheckCircle2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Building2, MapPin, ArrowRight, CheckCircle2, Clock, Layers } from 'lucide-react';
+import { publicApi } from '../api/client.js';
 import EnquiryForm from '../components/EnquiryForm.jsx';
 
 export const ProjectPortfolio = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const portfolioItems = [
-    {
-      id: 1,
-      title: 'Greenwood Contemporary Villa',
-      category: 'residential',
-      type: 'Turnkey Residential',
-      area: '3,400 sq.ft.',
-      status: 'Execution & Interior Stage',
-      desc: 'RCC framed structure, double-height living room, custom skylight, and engineered waterproofing systems.',
-      specs: ['M25 Grade Ready-Mix Concrete', 'Fe550D TMT Reinforcement', 'BWP Marine Ply Modular Joinery'],
-    },
-    {
-      id: 2,
-      title: 'Horizon Corporate Center',
-      category: 'commercial',
-      type: 'Commercial G+3',
-      area: '14,200 sq.ft.',
-      status: 'Superstructure Completed',
-      desc: 'Retail shopping floors on ground and first levels, with modern IT workspace floors on upper levels and double basement parking.',
-      specs: ['Post-Tensioned Slabs', 'DGU Structural Glazing', 'Central HVAC Duct Coordination'],
-    },
-    {
-      id: 3,
-      title: 'Aura Minimalist Living Suite',
-      category: 'interior',
-      type: 'Interior Turnkey Fitout',
-      area: '2,100 sq.ft.',
-      status: 'Finishing Completed',
-      desc: 'Fluted wooden paneling, concealed cove and track illumination, Italian marble flooring, and modular open-plan kitchen.',
-      specs: ['Acrylic Matt Cabinets', 'Concealed Multi-Zone AC', 'Automated Mood Lighting'],
-    },
-    {
-      id: 4,
-      title: 'Riverside Duplex Residence',
-      category: 'residential',
-      type: 'Turnkey Residential',
-      area: '2,800 sq.ft.',
-      status: 'Finishing Stage',
-      desc: 'Vastu-aligned 4BHK duplex residence featuring private landscaped courtyard and rainwater harvesting tank.',
-      specs: ['Aerated Autoclaved Concrete (AAC) Blocks', 'Solar Water Heating Integration', 'Teak Wood Main Framing'],
-    },
-    {
-      id: 5,
-      title: 'Metro Retail Showroom Facade',
-      category: 'commercial',
-      type: 'Exterior Facade & Civil Works',
-      area: '5,600 sq.ft.',
-      status: 'Handover Completed',
-      desc: 'High-pressure laminate (HPL) facade paired with spider-fitting structural glazing and automated glass sliding entrances.',
-      specs: ['Grade 316 Stainless Steel Fixtures', 'Toughened Laminated Glass', 'Anti-Corrosion Primers'],
-    },
-    {
-      id: 6,
-      title: 'Summit Executive Offices',
-      category: 'interior',
-      type: 'Commercial Office Fitout',
-      area: '6,800 sq.ft.',
-      status: 'Handover Completed',
-      desc: 'Ergonomic 80-seat workstation floor with acoustic gypsum partitions, server room UPS integration, and executive conference suites.',
-      specs: ['Acoustic Ceiling Baffles', 'Commercial Grade Carpet Tiles', 'Smart Access Control Door Systems'],
-    },
-  ];
+  useEffect(() => {
+    fetchPublishedProjects();
+  }, [activeCategory]);
 
-  const filtered = activeCategory === 'all'
-    ? portfolioItems
-    : portfolioItems.filter((item) => item.category === activeCategory);
+  const fetchPublishedProjects = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await publicApi.getProjects(activeCategory);
+      if (res.success) {
+        setProjects(res.data || []);
+      }
+    } catch (err) {
+      setError('Unable to load project portfolio at this moment.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
       <section className="section" style={{ backgroundColor: '#0f172a', color: '#ffffff', padding: '4.5rem 0' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
-            Engineering Portfolio
+            Engineering Execution
           </span>
           <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>Construction Project Portfolio</h1>
           <p style={{ maxWidth: '720px', margin: '0 auto', color: '#cbd5e1' }}>
-            Explore representative construction projects and execution case studies managed by CivilWorld's engineering and site team.
+            Explore verified turnkey construction, residential buildings, commercial complexes, and interior design executions managed by CivilWorld.
           </p>
         </div>
       </section>
@@ -89,12 +46,18 @@ export const ProjectPortfolio = () => {
       <section className="section">
         <div className="container">
           {/* Category Filter Tabs */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.65rem', marginBottom: '3rem', flexWrap: 'wrap' }}>
             <button
               className={`btn btn-sm ${activeCategory === 'all' ? 'btn-primary' : 'btn-outline'}`}
               onClick={() => setActiveCategory('all')}
             >
-              All Projects
+              All Verticals
+            </button>
+            <button
+              className={`btn btn-sm ${activeCategory === 'turnkey' ? 'btn-primary' : 'btn-outline'}`}
+              onClick={() => setActiveCategory('turnkey')}
+            >
+              Turnkey Projects
             </button>
             <button
               className={`btn btn-sm ${activeCategory === 'residential' ? 'btn-primary' : 'btn-outline'}`}
@@ -109,46 +72,116 @@ export const ProjectPortfolio = () => {
               Commercial
             </button>
             <button
-              className={`btn btn-sm ${activeCategory === 'interior' ? 'btn-primary' : 'btn-outline'}`}
-              onClick={() => setActiveCategory('interior')}
+              className={`btn btn-sm ${activeCategory === 'interiors' ? 'btn-primary' : 'btn-outline'}`}
+              onClick={() => setActiveCategory('interiors')}
             >
-              Interior Fitouts
+              Interiors
+            </button>
+            <button
+              className={`btn btn-sm ${activeCategory === 'exteriors' ? 'btn-primary' : 'btn-outline'}`}
+              onClick={() => setActiveCategory('exteriors')}
+            >
+              Exteriors & Facade
             </button>
           </div>
 
-          <div className="grid-3">
-            {filtered.map((item) => (
-              <div key={item.id} className="card">
-                <div style={{ height: '170px', backgroundColor: '#e2e8f0', borderRadius: '8px', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', color: '#475569' }}>
-                  <Building2 size={38} color="#d97706" />
-                  <span style={{ fontSize: '0.82rem', marginTop: '0.5rem', fontWeight: 600 }}>{item.type}</span>
+          {/* Loading State */}
+          {loading ? (
+            <div style={{ textAlign: 'center', padding: '4rem 0' }}>
+              <div style={{ width: '40px', height: '40px', border: '3px solid #e2e8f0', borderTopColor: '#d97706', borderRadius: '50%', margin: '0 auto 1rem auto', animation: 'spin 1s linear infinite' }}></div>
+              <p style={{ color: '#64748b' }}>Loading published projects...</p>
+              <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
+            </div>
+          ) : error ? (
+            <div className="alert-box warning" style={{ maxWidth: '600px', margin: '2rem auto', textAlign: 'center' }}>
+              <p style={{ margin: 0 }}>{error}</p>
+            </div>
+          ) : projects.length === 0 ? (
+            /* Professional Empty State */
+            <div className="card" style={{ maxWidth: '640px', margin: '2rem auto', textAlign: 'center', padding: '3.5rem 2rem' }}>
+              <Building2 size={44} color="#d97706" style={{ margin: '0 auto 1rem auto', display: 'block' }} />
+              <h3 style={{ marginBottom: '0.5rem', color: '#0f172a' }}>No Published Projects in this Category</h3>
+              <p style={{ color: '#64748b', fontSize: '0.92rem', lineHeight: '1.6', marginBottom: '1.75rem' }}>
+                Our engineering team is currently compiling documentation and milestone galleries for ongoing and completed projects. Please check back shortly or request a direct consultation for site references.
+              </p>
+              <Link to="/contact" className="btn btn-primary btn-sm">
+                Request Project Consultation
+              </Link>
+            </div>
+          ) : (
+            /* Published Projects Grid */
+            <div className="grid-3">
+              {projects.map((item) => (
+                <div key={item.id} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+                  {item.coverImage ? (
+                    <img
+                      src={item.coverImage}
+                      alt={item.title}
+                      style={{ height: '190px', width: '100%', objectFit: 'cover', borderRadius: '8px', marginBottom: '1.25rem' }}
+                    />
+                  ) : (
+                    <div style={{ height: '190px', backgroundColor: '#f1f5f9', borderRadius: '8px', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', color: '#64748b' }}>
+                      <Building2 size={38} color="#d97706" />
+                      <span style={{ fontSize: '0.8rem', marginTop: '0.5rem', fontWeight: 600, textTransform: 'capitalize' }}>
+                        {item.category} Project
+                      </span>
+                    </div>
+                  )}
+
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                    <span style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#d97706', fontWeight: 700 }}>
+                      {item.category}
+                    </span>
+                    <span style={{ fontSize: '0.75rem', backgroundColor: '#f1f5f9', padding: '0.2rem 0.5rem', borderRadius: '4px', color: '#475569', textTransform: 'capitalize' }}>
+                      {item.status}
+                    </span>
+                  </div>
+
+                  <h3 style={{ fontSize: '1.22rem', marginBottom: '0.4rem', color: '#0f172a' }}>
+                    {item.title}
+                  </h3>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.85rem', color: '#64748b', marginBottom: '0.85rem' }}>
+                    <MapPin size={14} color="#d97706" />
+                    <span>{item.location}</span>
+                  </div>
+
+                  <p style={{ fontSize: '0.88rem', marginBottom: '1.25rem', color: '#64748b', flex: 1, lineHeight: '1.55' }}>
+                    {item.description.length > 140 ? `${item.description.substring(0, 140)}...` : item.description}
+                  </p>
+
+                  {item.objectives && item.objectives.length > 0 && (
+                    <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '0.75rem', marginBottom: '1.25rem' }}>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase' }}>Scope Highlights:</span>
+                      <ul style={{ listStyle: 'none', marginTop: '0.4rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                        {item.objectives.slice(0, 2).map((obj, oIdx) => (
+                          <li key={oIdx} style={{ fontSize: '0.8rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                            <CheckCircle2 size={13} color="#10b981" /> {obj}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <Link
+                    to={`/portfolio/${item.slug}`}
+                    className="btn btn-outline btn-sm"
+                    style={{ width: '100%', justifyContent: 'space-between', marginTop: 'auto' }}
+                  >
+                    <span>View Project Details</span>
+                    <ArrowRight size={14} />
+                  </Link>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                  <span style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#d97706', fontWeight: 700 }}>{item.area}</span>
-                  <span style={{ fontSize: '0.75rem', backgroundColor: '#f1f5f9', padding: '0.2rem 0.5rem', borderRadius: '4px', color: '#475569' }}>{item.status}</span>
-                </div>
-                <h3 style={{ fontSize: '1.18rem', marginBottom: '0.65rem' }}>{item.title}</h3>
-                <p style={{ fontSize: '0.88rem', marginBottom: '1rem', color: '#64748b' }}>{item.desc}</p>
-                
-                <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '0.85rem' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase' }}>Key Engineering Specs:</span>
-                  <ul style={{ listStyle: 'none', marginTop: '0.4rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-                    {item.specs.map((s, idx) => (
-                      <li key={idx} style={{ fontSize: '0.8rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                        <CheckCircle2 size={13} color="#10b981" /> {s}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
+      {/* Enquiry Call to Action */}
       <section className="section" style={{ backgroundColor: '#f8fafc' }}>
         <div className="container">
-          <EnquiryForm title="Discuss Your Next Project with Our Engineers" />
+          <EnquiryForm defaultInterest="turnkey-projects" title="Discuss Your Upcoming Construction Project" />
         </div>
       </section>
     </div>

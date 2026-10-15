@@ -28,12 +28,13 @@ export const Navbar = () => {
     <>
       <header className="navbar">
         <div className="container navbar-container">
-          {/* Brand Logo */}
-          <Link to="/" className="brand-logo" onClick={closeMobile}>
-            <div className="brand-icon-box">
-              <HardHat size={22} />
-            </div>
-            <span>CIVIL<span className="accent">WORLD</span></span>
+          {/* Official Brand Logo */}
+          <Link to="/" className="brand-logo" onClick={closeMobile} aria-label="CivilWorld Homepage">
+            <img
+              src="/assets/civilworld-logo.png"
+              alt="CivilWorld — Learn, Build, Grow"
+              className="brand-logo-img"
+            />
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -138,12 +139,13 @@ export const Navbar = () => {
         <div className="mobile-drawer" onClick={closeMobile}>
           <div className="mobile-drawer-content" onClick={(e) => e.stopPropagation()}>
             <div className="mobile-drawer-header">
-              <div className="brand-logo">
-                <div className="brand-icon-box" style={{ width: '32px', height: '32px' }}>
-                  <HardHat size={18} />
-                </div>
-                <span style={{ fontSize: '1.15rem' }}>CIVIL<span className="accent">WORLD</span></span>
-              </div>
+              <Link to="/" className="brand-logo" onClick={closeMobile} aria-label="CivilWorld Homepage">
+                <img
+                  src="/assets/civilworld-logo.png"
+                  alt="CivilWorld — Learn, Build, Grow"
+                  style={{ height: '44px', width: 'auto', objectFit: 'contain', borderRadius: '6px' }}
+                />
+              </Link>
               <button onClick={closeMobile} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
                 <X size={24} />
               </button>

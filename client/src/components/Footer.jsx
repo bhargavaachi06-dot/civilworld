@@ -9,12 +9,13 @@ export const Footer = () => {
         <div className="footer-grid">
           {/* Brand Info */}
           <div className="footer-col">
-            <div className="brand-logo" style={{ color: '#ffffff', marginBottom: '1.25rem' }}>
-              <div className="brand-icon-box">
-                <HardHat size={22} />
-              </div>
-              <span>CIVIL<span className="accent">WORLD</span></span>
-            </div>
+            <Link to="/" style={{ display: 'inline-block' }} aria-label="CivilWorld Homepage">
+              <img
+                src="/assets/civilworld-logo.png"
+                alt="CivilWorld — Learn, Build, Grow"
+                className="footer-logo-img"
+              />
+            </Link>
             <p style={{ color: '#94a3b8', fontSize: '0.92rem', marginBottom: '1.5rem', lineHeight: '1.65' }}>
               CivilWorld integrates professional turnkey construction and engineering execution with practical site-exposure and technical documentation training for civil engineering graduates.
             </p>

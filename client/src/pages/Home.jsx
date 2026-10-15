@@ -25,33 +25,37 @@ export const Home = () => {
           <div className="hero-grid">
             <div>
               <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.2)', color: '#fbbf24', border: '1px solid rgba(217, 119, 6, 0.4)' }}>
-                Engineering Precision & Technical Mastery
+                Learn • Build • Grow
               </span>
               <h1>
-                Turnkey Construction Execution & Practical Civil Engineering Academy
+                Learn Engineering. Build the Future.
               </h1>
               <p>
-                CivilWorld combines end-to-end residential and commercial construction with real-world site exposure, structural drawing interpretation, and rigorous documentation training for newly graduated engineers.
+                Practical civil engineering training, turnkey construction expertise, and career opportunities — all under one unified roof.
               </p>
               <div className="hero-actions">
                 <Link to="/services" className="btn btn-primary btn-lg">
-                  <Building2 size={18} /> Explore Construction Services
+                  <Building2 size={18} /> Explore Construction
                 </Link>
                 <Link to="/academy" className="btn btn-outline-white btn-lg">
-                  <GraduationCap size={18} /> Explore Training Academy
+                  <GraduationCap size={18} /> Explore Training
                 </Link>
               </div>
             </div>
 
             <div>
               <div className="hero-badge-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1rem' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 158, 11, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f59e0b' }}>
-                    <ShieldCheck size={26} />
-                  </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
+                  <img
+                    src="/assets/civilworld-logo.png"
+                    alt="CivilWorld — Learn, Build, Grow"
+                    style={{ height: '68px', width: 'auto', objectFit: 'contain', borderRadius: '8px', boxShadow: '0 4px 16px rgba(0, 0, 0, 0.4)' }}
+                  />
                   <div>
-                    <h3 style={{ color: '#ffffff', fontSize: '1.15rem' }}>Integrated Civil Practice</h3>
-                    <p style={{ color: '#94a3b8', fontSize: '0.85rem', margin: 0 }}>Two Dedicated Business Verticals</p>
+                    <h3 style={{ color: '#ffffff', fontSize: '1.15rem' }}>CIVILWORLD</h3>
+                    <p style={{ color: '#d97706', fontSize: '0.82rem', margin: 0, fontWeight: 700, letterSpacing: '0.05em' }}>
+                      LEARN • BUILD • GROW
+                    </p>
                   </div>
                 </div>
 

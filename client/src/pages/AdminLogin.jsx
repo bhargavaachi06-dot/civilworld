@@ -50,9 +50,11 @@ export const AdminLogin = () => {
     <div style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 1rem' }}>
       <div className="card" style={{ maxWidth: '440px', width: '100%', padding: '2.5rem', boxShadow: 'var(--shadow-xl)' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: 'var(--color-brand-primary)', color: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>
-            <Lock size={28} />
-          </div>
+          <img
+            src="/assets/civilworld-logo.png"
+            alt="CivilWorld — Learn, Build, Grow"
+            style={{ height: '76px', width: 'auto', objectFit: 'contain', margin: '0 auto 1.25rem auto', display: 'block', borderRadius: '10px' }}
+          />
           <h2 style={{ fontSize: '1.5rem', marginBottom: '0.4rem' }}>CivilWorld Admin Portal</h2>
           <p style={{ fontSize: '0.88rem' }}>Authorized management personnel login</p>
         </div>

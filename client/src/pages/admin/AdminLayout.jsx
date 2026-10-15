@@ -64,13 +64,12 @@ export const AdminLayout = () => {
         }}
       >
         <div className="admin-sidebar-header">
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', color: '#ffffff' }}>
-            <div className="brand-icon-box" style={{ width: '34px', height: '34px' }}>
-              <HardHat size={20} />
-            </div>
-            <span style={{ fontWeight: 800, fontSize: '1.15rem' }}>
-              CIVIL<span style={{ color: '#d97706' }}>WORLD</span>
-            </span>
+          <Link to="/" style={{ display: 'inline-flex', alignItems: 'center' }} aria-label="CivilWorld Homepage">
+            <img
+              src="/assets/civilworld-logo.png"
+              alt="CivilWorld — Learn, Build, Grow"
+              style={{ height: '44px', width: 'auto', objectFit: 'contain', borderRadius: '4px' }}
+            />
           </Link>
           <span style={{ fontSize: '0.7rem', backgroundColor: 'rgba(217, 119, 6, 0.2)', color: '#f59e0b', padding: '0.2rem 0.5rem', borderRadius: '4px', fontWeight: 700 }}>
             ADMIN

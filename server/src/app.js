@@ -31,9 +31,12 @@ app.use(
 // Safe CORS setup
 const allowedOrigins = [
   config.clientUrl,
+  config.adminUrl,
   'http://localhost:5173',
   'http://127.0.0.1:5173',
-];
+  'http://localhost:5174',
+  'http://127.0.0.1:5174',
+].filter(Boolean);
 
 app.use(
   cors({

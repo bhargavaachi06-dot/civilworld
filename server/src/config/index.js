@@ -9,6 +9,7 @@ const config = {
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || '24h',
   cookieExpiresDays: parseInt(process.env.COOKIE_EXPIRES_DAYS || '1', 10),
   clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',
+  adminUrl: process.env.ADMIN_URL || 'http://localhost:5174',
 };
 
 // Safety verification: Ensure database URI explicitly targets civilworld_db

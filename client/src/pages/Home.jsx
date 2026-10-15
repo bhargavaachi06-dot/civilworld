@@ -21,6 +21,11 @@ export const Home = () => {
     <div>
       {/* 1. CINEMATIC CENTERED HERO SECTION */}
       <section className="home-hero" aria-label="CivilWorld Introduction">
+        {/* Cinematic Slow Zoom-Out Background Layer */}
+        <div className="home-hero-bg-layer" aria-hidden="true" />
+        {/* Protective Vignette & Gradient Overlay */}
+        <div className="home-hero-overlay" aria-hidden="true" />
+
         <div className="home-hero-container">
           {/* A. Brand Heading (Official emblem + metallic silver/chrome title) */}
           <div className="home-hero-brand home-hero-anim-1">

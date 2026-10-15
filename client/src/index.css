@@ -594,19 +594,46 @@ a {
   justify-content: center;
   padding: 7rem 1.5rem 6.5rem 1.5rem;
   background-color: #070b14;
-  background-image:
-    /* Layer 1: Dark centered vignette to enhance typography legibility */
-    radial-gradient(ellipse 70% 65% at 50% 50%, rgba(7, 11, 20, 0.72) 0%, rgba(9, 13, 24, 0.55) 50%, rgba(7, 11, 20, 0.88) 100%),
-    /* Layer 2: Subtle architectural lighting gradients */
-    linear-gradient(180deg, rgba(7, 11, 20, 0.8) 0%, rgba(9, 13, 24, 0.15) 25%, rgba(9, 13, 24, 0.2) 75%, rgba(7, 11, 20, 0.95) 100%),
-    /* Layer 3: High-end architectural photography background */
-    url('/assets/civilworld-bg.jpg');
+  color: #ffffff;
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+}
+
+/* Slow Cinematic Zoom-Out Background Layer */
+.home-hero-bg-layer {
+  position: absolute;
+  inset: -6%; /* Safe bleed margin preventing exposed edges during scale */
+  z-index: -2;
+  background-image: url('/assets/civilworld-bg.jpg');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  color: #ffffff;
-  overflow: hidden;
-  text-align: center;
+  transform: scale(1.12);
+  animation: heroSlowZoomOut 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes heroSlowZoomOut {
+  0% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1.00);
+  }
+}
+
+/* Protective Dark Vignette & Architectural Lighting Overlay */
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    /* Layer 1: Dark centered vignette for optimal typography contrast */
+    radial-gradient(ellipse 70% 65% at 50% 50%, rgba(7, 11, 20, 0.72) 0%, rgba(9, 13, 24, 0.55) 50%, rgba(7, 11, 20, 0.88) 100%),
+    /* Layer 2: Subtle architectural lighting gradients */
+    linear-gradient(180deg, rgba(7, 11, 20, 0.8) 0%, rgba(9, 13, 24, 0.15) 25%, rgba(9, 13, 24, 0.2) 75%, rgba(7, 11, 20, 0.95) 100%);
+  pointer-events: none;
 }
 
 .home-hero::after {
@@ -618,6 +645,7 @@ a {
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.3) 50%, transparent 100%);
   pointer-events: none;
+  z-index: 1;
 }
 
 .home-hero-container {
@@ -829,6 +857,12 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .home-hero-bg-layer {
+    animation: none !important;
+    transform: scale(1) !important;
+    will-change: auto !important;
+  }
+
   .home-hero-anim-1,
   .home-hero-anim-2,
   .home-hero-anim-3,

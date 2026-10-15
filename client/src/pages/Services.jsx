@@ -58,9 +58,6 @@ export const Services = () => {
     <div>
       <section className="section" style={{ backgroundColor: '#0f172a', color: '#ffffff', padding: '5rem 0' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
-            Division A
-          </span>
           <h1 className="page-hero-title" style={{ marginBottom: '1.25rem' }}>
             Civil Engineering & Construction Services
           </h1>

@@ -21,7 +21,7 @@ export const Academy = () => {
           <div className="hero-grid">
             <div>
               <span className="badge-tag blue" style={{ backgroundColor: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8', border: '1px solid rgba(56, 189, 248, 0.4)' }}>
-                Division B — CivilWorld Academy
+                CivilWorld Academy
               </span>
               <h1 className="page-hero-title">Bridge the Gap Between Civil Degree and Site Reality</h1>
               <p>

@@ -67,7 +67,6 @@ export const Home = () => {
       <section className="section">
         <div className="container">
           <div className="section-title">
-            <span className="badge-tag">Division A</span>
             <h2>Construction & Engineering Services</h2>
             <p>
               From architectural planning to turnkey handover, CivilWorld delivers structured execution backed by certified quantity surveying and professional site supervision.
@@ -133,7 +132,6 @@ export const Home = () => {
       <section className="section" style={{ backgroundColor: '#f1f5f9' }}>
         <div className="container">
           <div className="section-title">
-            <span className="badge-tag blue">Division B</span>
             <h2>CivilWorld Training Academy</h2>
             <p>
               Empowering civil engineering graduates with practical site competencies, drawing interpretation, Daily Progress Reporting, and career guidance.
@@ -218,34 +216,34 @@ export const Home = () => {
               </Link>
             </div>
 
-            <div style={{ backgroundColor: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '16px', padding: '2.5rem', boxShadow: 'var(--shadow-md)' }}>
-              <h3 style={{ marginBottom: '1rem', color: '#0f172a' }}>Student Pathway Model</h3>
+            <div className="card pathway-card">
+              <h3 style={{ marginBottom: '1.25rem', color: '#0f172a' }}>Student Pathway Model</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#fef3c7', color: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>1</div>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <div className="pathway-step-num">1</div>
                   <div>
-                    <h4 style={{ fontSize: '1rem' }}>Drawing & Quantity Surveying Basics</h4>
+                    <h4 style={{ fontSize: '1rem', marginBottom: '0.2rem' }}>Drawing & Quantity Surveying Basics</h4>
                     <p style={{ fontSize: '0.88rem', margin: 0 }}>AutoCAD plan interpretation and BOQ calculation foundations.</p>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#fef3c7', color: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>2</div>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <div className="pathway-step-num">2</div>
                   <div>
-                    <h4 style={{ fontSize: '1rem' }}>Site Engineering Field Practice</h4>
+                    <h4 style={{ fontSize: '1rem', marginBottom: '0.2rem' }}>Site Engineering Field Practice</h4>
                     <p style={{ fontSize: '0.88rem', margin: 0 }}>Column layout, rebar checklists, shuttering inspection, and pour supervision.</p>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#fef3c7', color: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>3</div>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <div className="pathway-step-num">3</div>
                   <div>
-                    <h4 style={{ fontSize: '1rem' }}>Technical Documentation & DPR</h4>
+                    <h4 style={{ fontSize: '1rem', marginBottom: '0.2rem' }}>Technical Documentation & DPR</h4>
                     <p style={{ fontSize: '0.88rem', margin: 0 }}>Measurement books, daily logs, client billing, and contractor reconciliation.</p>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#fef3c7', color: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>4</div>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <div className="pathway-step-num">4</div>
                   <div>
-                    <h4 style={{ fontSize: '1rem' }}>Assessment & Placement Guidance</h4>
+                    <h4 style={{ fontSize: '1rem', marginBottom: '0.2rem' }}>Assessment & Placement Guidance</h4>
                     <p style={{ fontSize: '0.88rem', margin: 0 }}>Skill assessment, verified completion certificate, and interview preparation.</p>
                   </div>
                 </div>
@@ -268,7 +266,7 @@ export const Home = () => {
 
           <div className="grid-3">
             <div className="card">
-              <div style={{ height: '180px', backgroundColor: '#e2e8f0', borderRadius: '8px', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', flexDirection: 'column' }}>
+              <div className="project-card-thumb">
                 <Building2 size={36} color="#d97706" />
                 <span style={{ fontSize: '0.85rem', marginTop: '0.5rem', fontWeight: 600 }}>Residential Villa Project</span>
               </div>
@@ -283,7 +281,7 @@ export const Home = () => {
             </div>
 
             <div className="card">
-              <div style={{ height: '180px', backgroundColor: '#e2e8f0', borderRadius: '8px', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', flexDirection: 'column' }}>
+              <div className="project-card-thumb">
                 <Layers size={36} color="#0284c7" />
                 <span style={{ fontSize: '0.85rem', marginTop: '0.5rem', fontWeight: 600 }}>Commercial Retail Hub</span>
               </div>
@@ -298,7 +296,7 @@ export const Home = () => {
             </div>
 
             <div className="card">
-              <div style={{ height: '180px', backgroundColor: '#e2e8f0', borderRadius: '8px', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', flexDirection: 'column' }}>
+              <div className="project-card-thumb">
                 <Compass size={36} color="#10b981" />
                 <span style={{ fontSize: '0.85rem', marginTop: '0.5rem', fontWeight: 600 }}>Interior Turnkey Execution</span>
               </div>

@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
+import SocialLinks from './SocialLinks.jsx';
 
 export const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
-          {/* Brand Info */}
+          {/* Column 1 — CivilWorld */}
           <div className="footer-col">
+            <h4 className="footer-col-title">CivilWorld</h4>
             <Link to="/" style={{ display: 'inline-block' }} aria-label="CivilWorld Homepage">
               <img
                 src="/assets/civilworld-logo.png"
@@ -19,56 +21,46 @@ export const Footer = () => {
             <p className="footer-desc">
               CivilWorld integrates professional turnkey construction and engineering execution with practical site-exposure and technical documentation training for civil engineering graduates.
             </p>
-            <div className="footer-badge">
-              <ShieldCheck size={18} color="#FF8C00" style={{ flexShrink: 0 }} />
-              <span>Dedicated Quality, Site Safety & Supervised Training</span>
-            </div>
           </div>
 
-          {/* Construction Services */}
+          {/* Column 2 — Quick Links */}
           <div className="footer-col">
-            <h4>Construction Division</h4>
-            <ul className="footer-links">
-              <li><Link to="/services/turnkey">Turnkey Construction</Link></li>
-              <li><Link to="/services/residential">Residential Buildings</Link></li>
-              <li><Link to="/services/commercial">Commercial Structures</Link></li>
-              <li><Link to="/services/interior">Interior Design & Execution</Link></li>
-              <li><Link to="/services/exterior">Exterior & Elevation Works</Link></li>
-              <li><Link to="/services/estimation-boq">Estimation & Bill of Quantities</Link></li>
-              <li><Link to="/portfolio">Project Portfolio</Link></li>
+            <h4 className="footer-col-title">Quick Links</h4>
+            <ul className="footer-links footer-links-grid">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/portfolio">Portfolio</Link></li>
+              <li><Link to="/academy">Academy</Link></li>
+              <li><Link to="/careers">Careers</Link></li>
+              <li><Link to="/blog">Knowledge Center</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* Academy Division */}
+          {/* Column 3 — Contact Us */}
           <div className="footer-col">
-            <h4>CivilWorld Academy</h4>
-            <ul className="footer-links">
-              <li><Link to="/academy">Academy Overview</Link></li>
-              <li><Link to="/academy/programs">Graduate Training Programs</Link></li>
-              <li><Link to="/academy/site-training">Practical Site Engineering</Link></li>
-              <li><Link to="/academy/documentation-training">BOQ & DPR Documentation</Link></li>
-              <li><Link to="/careers">Internships & Opportunities</Link></li>
-              <li><Link to="/blog">Civil Knowledge Center</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact & Official Inquiries */}
-          <div className="footer-col">
-            <h4>Company & Inquiries</h4>
+            <h4 className="footer-col-title">Contact Us</h4>
             <ul className="footer-links footer-contact-list">
-              <li className="footer-contact-item">
-                <Mail size={16} className="footer-contact-icon" />
-                <a href="mailto:civilworldtelugu1@gmail.com" className="footer-contact-link">
-                  civilworldtelugu1@gmail.com
-                </a>
-              </li>
               <li className="footer-contact-item">
                 <Phone size={16} className="footer-contact-icon" />
                 <a href="tel:7032518399" className="footer-contact-link">
                   +91 7032518399
                 </a>
               </li>
+              <li className="footer-contact-item">
+                <Mail size={16} className="footer-contact-icon" />
+                <a href="mailto:civilworldtelugu1@gmail.com" className="footer-contact-link">
+                  civilworldtelugu1@gmail.com
+                </a>
+              </li>
             </ul>
+
+            {/* Social links */}
+            <div className="footer-social-section">
+              <h4 className="footer-social-title">Follow CivilWorld</h4>
+              <SocialLinks theme="footer" iconSize={18} />
+            </div>
           </div>
         </div>
 
@@ -92,3 +84,4 @@ export const Footer = () => {
 };
 
 export default Footer;
+

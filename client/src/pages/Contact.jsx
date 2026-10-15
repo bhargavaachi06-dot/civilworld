@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, ShieldCheck, HardHat } from 'lucide-react';
 import EnquiryForm from '../components/EnquiryForm.jsx';
+import SocialLinks from '../components/SocialLinks.jsx';
 
 export const Contact = () => {
   return (
@@ -78,7 +79,16 @@ export const Contact = () => {
                 </div>
               </div>
 
-              <div style={{ backgroundColor: '#f1f5f9', padding: '1.25rem', borderRadius: '10px', fontSize: '0.85rem', color: '#64748b' }}>
+              {/* Connect & Follow Card */}
+              <div className="contact-social-card">
+                <h3 className="contact-social-title">Connect & Follow Us</h3>
+                <p className="contact-social-subtitle">
+                  Follow CivilWorld across our official channels or start a direct conversation on WhatsApp.
+                </p>
+                <SocialLinks theme="contact" />
+              </div>
+
+              <div style={{ backgroundColor: '#f1f5f9', padding: '1.25rem', borderRadius: '10px', fontSize: '0.85rem', color: '#64748b', marginTop: '1.5rem' }}>
                 <strong>Prompt Response Assurance:</strong> Construction proposals and academy enrollment inquiries are reviewed by licensed engineers within 24 working hours.
               </div>
             </div>

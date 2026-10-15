@@ -27,13 +27,8 @@ export const Home = () => {
         <div className="home-hero-overlay" aria-hidden="true" />
 
         <div className="home-hero-container">
-          {/* A. Brand Heading (Official emblem + metallic silver/chrome title) */}
+          {/* A. Brand Heading (Metallic silver/chrome title) */}
           <div className="home-hero-brand home-hero-anim-1">
-            <img
-              src="/assets/civilworld-logo.png"
-              alt="CivilWorld Official Emblem"
-              className="home-hero-emblem"
-            />
             <h1 className="home-hero-title">CIVILWORLD</h1>
           </div>
 
@@ -333,7 +328,7 @@ export const Home = () => {
             <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.25)', color: '#f59e0b' }}>
               Connect With CivilWorld
             </span>
-            <h2 style={{ color: '#ffffff', marginBottom: '1rem' }}>
+            <h2 className="page-hero-title" style={{ marginBottom: '1rem' }}>
               Start Your Construction Project or Enroll in Academy Training
             </h2>
             <p style={{ color: '#cbd5e1' }}>

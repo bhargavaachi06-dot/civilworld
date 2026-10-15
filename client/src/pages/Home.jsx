@@ -19,62 +19,46 @@ import EnquiryForm from '../components/EnquiryForm.jsx';
 export const Home = () => {
   return (
     <div>
-      {/* 1. HERO SECTION */}
-      <section className="hero">
-        <div className="container">
-          <div className="hero-grid">
-            <div>
-              <span className="badge-tag" style={{ backgroundColor: 'rgba(217, 119, 6, 0.2)', color: '#fbbf24', border: '1px solid rgba(217, 119, 6, 0.4)' }}>
-                Learn • Build • Grow
-              </span>
-              <h1>
-                Learn Engineering. Build the Future.
-              </h1>
-              <p>
-                Practical civil engineering training, turnkey construction expertise, and career opportunities — all under one unified roof.
-              </p>
-              <div className="hero-actions">
-                <Link to="/services" className="btn btn-primary btn-lg">
-                  <Building2 size={18} /> Explore Construction
-                </Link>
-                <Link to="/academy" className="btn btn-outline-white btn-lg">
-                  <GraduationCap size={18} /> Explore Training
-                </Link>
-              </div>
-            </div>
+      {/* 1. CINEMATIC CENTERED HERO SECTION */}
+      <section className="home-hero" aria-label="CivilWorld Introduction">
+        <div className="home-hero-container">
+          {/* A. Brand Heading (Official emblem + metallic silver/chrome title) */}
+          <div className="home-hero-brand home-hero-anim-1">
+            <img
+              src="/assets/civilworld-logo.png"
+              alt="CivilWorld Official Emblem"
+              className="home-hero-emblem"
+            />
+            <h1 className="home-hero-title">CIVILWORLD</h1>
+          </div>
 
-            <div>
-              <div className="hero-badge-panel">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
-                  <img
-                    src="/assets/civilworld-logo.png"
-                    alt="CivilWorld — Learn, Build, Grow"
-                    style={{ height: '68px', width: 'auto', objectFit: 'contain', borderRadius: '8px', boxShadow: '0 4px 16px rgba(0, 0, 0, 0.4)' }}
-                  />
-                  <div>
-                    <h3 style={{ color: '#ffffff', fontSize: '1.15rem' }}>CIVILWORLD</h3>
-                    <p style={{ color: '#d97706', fontSize: '0.82rem', margin: 0, fontWeight: 700, letterSpacing: '0.05em' }}>
-                      LEARN • BUILD • GROW
-                    </p>
-                  </div>
-                </div>
+          {/* B. Brand Tagline */}
+          <div className="home-hero-tagline-wrap home-hero-anim-2">
+            <span className="home-hero-tagline-line" aria-hidden="true" />
+            <p className="home-hero-tagline">LEARN • BUILD • GROW</p>
+            <span className="home-hero-tagline-line right" aria-hidden="true" />
+          </div>
 
-                <p style={{ color: '#cbd5e1', fontSize: '0.92rem', lineHeight: '1.6' }}>
-                  We bridge the critical gap between academic theory and high-standard construction sites, ensuring complete transparency in BOQ, site safety, and quality execution.
-                </p>
+          {/* C. Inspirational Quote with highlighted phrases */}
+          <blockquote className="home-hero-quote home-hero-anim-3">
+            “Where <span className="home-hero-quote-highlight">Skills Become Structures</span>, and <span className="home-hero-quote-highlight">Dreams Become Reality</span>.”
+          </blockquote>
 
-                <div className="hero-stat-row">
-                  <div className="stat-item">
-                    <h4>100%</h4>
-                    <p>Transparent BOQ & DPR</p>
-                  </div>
-                  <div className="stat-item">
-                    <h4>Site Safety</h4>
-                    <p>Strict Supervision Protocol</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* D. Supporting Sentence */}
+          <p className="home-hero-supporting home-hero-anim-4">
+            Learn with purpose. Build with confidence. Grow into the engineer you aspire to be.
+          </p>
+
+          {/* E. CTA Buttons */}
+          <div className="home-hero-actions home-hero-anim-5">
+            <Link to="/services" className="home-hero-btn-primary">
+              <Building2 size={18} />
+              <span>Explore Construction</span>
+            </Link>
+            <Link to="/academy" className="home-hero-btn-secondary">
+              <GraduationCap size={18} />
+              <span>Discover Academy</span>
+            </Link>
           </div>
         </div>
       </section>

@@ -16,7 +16,7 @@ import {
   uploadProjectImage,
 } from '../controllers/projectController.js';
 import { protect, requireRole } from '../middleware/auth.js';
-import { projectImageUpload } from '../middleware/upload.js';
+import { projectImageUploadMiddleware } from '../middleware/upload.js';
 
 const router = express.Router();
 
@@ -46,7 +46,7 @@ router.delete('/projects/:id', requireRole('admin', 'superadmin'), deleteProject
 router.post(
   '/projects/upload-image',
   requireRole('admin', 'superadmin'),
-  projectImageUpload.single('image'),
+  projectImageUploadMiddleware,
   uploadProjectImage
 );
 

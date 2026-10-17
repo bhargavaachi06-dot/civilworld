@@ -13,7 +13,7 @@ export const Footer = () => {
             <h4 className="footer-col-title">CivilWorld</h4>
             <Link to="/" style={{ display: 'inline-block' }} aria-label="CivilWorld Homepage">
               <img
-                src="/assets/civilworld-logo.png"
+                src="/assets/civilworld-footer-logo.png"
                 alt="CivilWorld — Learn, Build, Grow"
                 className="footer-logo-img"
               />
